@@ -1,3 +1,11 @@
+const checkForKey = () => {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get(['openai-key'], (result) => {
+      resolve(result['openai-key']);
+    });
+  });
+};
+
 document.getElementById('save_key_button').addEventListener('click', saveKey);
 document
   .getElementById('change_key_button')
